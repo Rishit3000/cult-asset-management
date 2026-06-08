@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15
+    container_name: asset_manager_db
+    restart: always
+    environment:
+      POSTGRES_USER: asset_user
+      POSTGRES_PASSWORD: secret_password
+      POSTGRES_DB: asset_management_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
